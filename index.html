@@ -10,20 +10,20 @@
 <body>
     <div class="alert">
         <div class="text">Warning!</div>
-        <div onclick="alertHide()"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div onclick="alertDisplay('none')"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg></div>
     </div>
-    <button onclick="alertShow()">Alert!</button>
+    <button onclick="alertDisplay('block')">Alert!</button>
 
     <script>
         const alert = document.querySelector(".alert");
-        function alertShow(){
-            alert.style.display = "block"; 
+        function alertDisplay(disp){
+            alert.style.display = disp; 
         }
-        function alertHide(){
-            alert.style.display = "none"; 
-        }
+        // function alertHide(){
+        //     alert.style.display = "none"; 
+        // }
     </script>
     <!-- <script src="main.js"></script> -->
 </body>
