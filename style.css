@@ -6,23 +6,14 @@
     font-family: 'Bree Serif', serif;
 }
 .alert{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 150px;
-    width: 200px;
-    background-color: crimson;
+    height: 100px;
+    width: 300px;
+    background-color: skyblue;
     display: none;
     text-align: center;
+    color: #fff;
 }
 .text{
-    color: #fff;
     font-size: 25px;
-    padding: 20px;
-}
-svg{
-    color: #fff;
-    width: 30px;
-    height: 30px;
+    padding: 10px;
 }
