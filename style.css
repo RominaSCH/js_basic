@@ -5,15 +5,13 @@
     box-sizing: border-box;
     font-family: 'Bree Serif', serif;
 }
-.alert{
-    height: 100px;
-    width: 300px;
-    background-color: skyblue;
-    display: none;
-    text-align: center;
-    color: #fff;
+body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.text{
-    font-size: 25px;
-    padding: 10px;
+.yellow-bg{
+    background-color: yellow;
 }

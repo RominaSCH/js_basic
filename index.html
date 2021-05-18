@@ -8,20 +8,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="alert">
-        <div class="text"> </div>
-        <div onclick="alertDisplay('none', null)">close</div>
-    </div>
-    <button onclick="alertDisplay('block', 'id')">Id Button</button>
-    <button onclick="alertDisplay('block', 'Password')">Password Button</button>
-
+    <div class="title">HOLA</div>
+    <button class="btn">hide</button>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
-        const alert = document.querySelector(".alert");
-        function alertDisplay(disp, word){
-            document.querySelector(".text").innerHTML = "Write the " + word;
-            alert.style.display = disp; 
-        }
+        $('.title').addClass('yellow-bg');  //$("CSS selector") .html은 .innerHTML 임
+        //$("~~").css("color", "red"); css 변경,
+        //$().attr("src", "https://~~");
+        $('.title').on("click", function(){//jQuery eventListner
+            $('.title').html("adios");
+        })
+        $('.btn').on("click",function(){
+            $('.title').hide(); //반대는 show(), .style.display = "none", "block" 등등 안해도됨
+            //jQuery 는 애니메이션이 굉장히 쉬워진다.
+        })
+        //jQuery 장점 : 코드가 짧아진다. 단체로 바꾸기가 쉽다. 애니메이션이 쉽다.
     </script>
-    <!-- <script src="main.js"></script> -->
 </body>
 </html>
