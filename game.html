@@ -17,11 +17,12 @@
     <script>
         $(".check").click(function(){
             let num = $("#number").val();
-            console.log(num);
-            if(num % 3 == 0){
+            if(num % 9 == 0){
+                $(".answer").html("clap! clap!");
+            } else if(num % 3 == 0){
                 $(".answer").html("clap!");
             } else{
-                $(".answer").html("pass!");
+                $(".answer").html(num);
             }
         });
     </script>
