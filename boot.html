@@ -19,37 +19,23 @@
     ></script>
   </head>
   <body>
-    <div class="card" style="width: 18rem">
-      <img src="image/card1.png" class="card-img-top" alt="image" />
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" class="btn btn-primary login-btn">Sign In</a>
+    <form action="login.php" class="login-form">
+      <div class="form-group">
+        <input type="email" class="form-control email" placeholder="Email" id="email">
       </div>
-    </div>
-    <input id="correct" type="text" placeholder="hola" />
-
-    <div class="modal">
-      <div class="modal_text">No me gusta algo</div>
-      <div class="modal_close">close</div>
-    </div>
+      <div class="form-group">
+        <input type="password" class="form-control password" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary">전송</button>
+    </form>
 
     <script>
-      $(".login-btn").click(function(){
-        let inputValue = $("#correct").val();
-        if(inputValue === "hola"){
-          $(".modal").show();
-        }
-        console.log(inputValue);
-      });
-
-      $(".modal_close").click(() => {
-        $(".modal").hide();
-      });
-
+      $(".login-form").on("submit",(e) => {
+        let inputEmail = $(".email").val();
+        if(inputEmail === ""){
+          alert("Write the email");
+          e.preventDefault();
+        }})
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
