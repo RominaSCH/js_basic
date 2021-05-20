@@ -18,21 +18,22 @@
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
-        $(".login-btn").click(function(e){
+        $("#email").change(() => {
             let inputEmail = $("#email").val();
+            if(inputEmail.includes("@") === true){
+                $("#email").css("background-color","#fff");
+            } else{
+                $("#email").css("background-color","rgba(255, 133, 89, 0.6)");
+            }
+        });
+        $("#password").change(() => {
             let inputPassword = $("#password").val();
-            if(inputEmail === ""){
-                e.preventDefault();
+            if(inputPassword.length > 6){
+                $("#password").css("background-color","#fff");
             } else{
-                $("#password").css("border","1px solid #fff");
+                $("#password").css("background-color","rgba(255, 133, 89, 0.6)");
             }
-            if(inputPassword === ""){
-                e.preventDefault();
-            } else{
-                $("#password").css("border","1px solid #fff");
-            }
-            //input에 입력시 bordercolor가 실시간으로 바뀌게 하고싶다
-        })
+        });
 
         //jQuery 장점 : 코드가 짧아진다. 단체로 바꾸기가 쉽다. 애니메이션이 쉽다.
         // $('어쩌구').hide();

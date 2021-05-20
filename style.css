@@ -65,7 +65,7 @@ body{
 #password{
     border: 0;
     outline: 0;
-    border: 1px solid darkred;
+    border: 1px solid #fff;
     border-radius: 10px;
     margin-bottom: 13px;
     padding: 3px;
@@ -74,10 +74,10 @@ body{
     transition: .1s ease-in;
     font-size: 16px;
 }
-#email:hover, #email:active,
+/* #email:hover, #email:active,
 #password:hover, #password:active{
     transform: scale(1.2);
-}
+} */
 .login-btn{
     margin-top: 5px;
     border: 0;
