@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="text" placeholder="첫 커피 양(ml)" id="cafe-input"/>
+    <button class="result-btn">마실 수 있는 최대 커피 양은?</button>
+    <span class="result-cafe">0 ml</span>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        //1 2/3 4/9
+        let result;
+        $(".result-btn").click(() => {
+            var myCoffee = parseInt($("#cafe-input").val());
+            var reCoffee = myCoffee * 2/3;
+            var reReCoffee = reCoffee * 2/3;
+            console.log(reCoffee + "\n" + reReCoffee);
+            if(!Number.isInteger(myCoffee)){
+                alert("Write the Number!");
+            } else{
+                result = myCoffee  + reCoffee + reReCoffee;
+            }
+            $(".result-cafe").html(result + " ml");
+        })
+    </script>
+</body>
+</html>

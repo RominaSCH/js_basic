@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="text" placeholder="예금액" id="deposit"/>
+    <button class="result-btn">Deposit Result</button>
+    <div class="result-dep">0</div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        //5만원 미만 이율 15퍼센트
+        //5만원 이상 이율 20퍼센트
+        let result;
+        $(".result-btn").click(() => {
+            var myDep = parseInt($("#deposit").val());
+            if(!Number.isInteger(myDep)){
+                alert("Write the Number!");
+            } else if(myDep >= 50000){
+                result = myDep * 1.2 * 1.2;
+            } else if(myDep < 50000){
+                result = myDep * 1.15 * 1.15;
+            }
+            $(".result-dep").html(result);
+        })
+    </script>
+</body>
+</html>

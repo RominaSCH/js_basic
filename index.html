@@ -18,7 +18,7 @@
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
-        $("#email").change(() => {
+        $("#email").on("input",() => {
             let inputEmail = $("#email").val();
             if(inputEmail.includes("@") === true){
                 $("#email").css("background-color","#fff");
@@ -26,14 +26,15 @@
                 $("#email").css("background-color","rgba(255, 133, 89, 0.6)");
             }
         });
-        $("#password").change(() => {
+        $("#password").on("input",() => {
             let inputPassword = $("#password").val();
             if(inputPassword.length > 6){
                 $("#password").css("background-color","#fff");
             } else{
                 $("#password").css("background-color","rgba(255, 133, 89, 0.6)");
             }
-        });
+        });//change는 focus를 잃었을 때 실행되고
+        //input은 input 값이 변경될 때 마다 실행된다.
 
         //jQuery 장점 : 코드가 짧아진다. 단체로 바꾸기가 쉽다. 애니메이션이 쉽다.
         // $('어쩌구').hide();
