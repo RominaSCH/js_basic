@@ -1,61 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Javascript Basic Class</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <form class="login-form">
-            <input type="email" name="email" id="email" placeholder="email">
-            <input type="password" name="password" id="password" placeholder="password">
-            <button class="login-btn">Log In</button>
-        </form>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="menu-btn">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
     </div>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <div class="menu-wrapper">
+      <a href="game.html">369 GAME</a>
+    </div>
+    <div class="content">
+      <button class="login-btn">Sign IN</button>
+      <div class="modal">
+        <div class="modal_content">
+          <p>I'm so tired</p>
+          <button class="modal_close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <script>
-        $("#email").on("input",() => {
-            let inputEmail = $("#email").val();
-            if(inputEmail.includes("@") === true){
-                $("#email").css("background-color","#fff");
-            } else{
-                $("#email").css("background-color","rgba(255, 133, 89, 0.6)");
-            }
-        });
-        $("#password").on("input",() => {
-            let inputPassword = $("#password").val();
-            if(inputPassword.length > 6){
-                $("#password").css("background-color","#fff");
-            } else{
-                $("#password").css("background-color","rgba(255, 133, 89, 0.6)");
-            }
-        });//change는 focus를 잃었을 때 실행되고
-        //input은 input 값이 변경될 때 마다 실행된다.
-
-        //jQuery 장점 : 코드가 짧아진다. 단체로 바꾸기가 쉽다. 애니메이션이 쉽다.
-        // $('어쩌구').hide();
-        // $('어쩌구').show();
-        // $('어쩌구').slideUp();
-        // $('어쩌구').slideDown();
-        // $('어쩌구').fadeOut();
-        // $('어쩌구').fadeIn();
-
-        // $('어쩌구').click(function(){
-        // //어쩌구를 클릭시 실행할 코드
-        // });
-        // $('어쩌구').on('click', function(){
-        // //어쩌구를 클릭시 실행할 코드
-        // });둘은 같은 기능이다. 위는 click만 되고 아래는 맘대로 바꿀 수 있음.
-
-        // $('서브메뉴').slideToggle();
-        // $('서브메뉴').fadeToggle();
-        // $('서브메뉴').toggle();
-        // 보여줬다 안보여줬다 하는 함수.
-        // 바닐라JS 면 if문쓰고 귀찮은데 이거쓰면 쉬워짐
+      $(".menu-btn").click(function () {
+        $(".menu-wrapper").animate({ left: 0 }, 500);
+        //.animate({ attribute: "~~~px ~~"}, time);
+      });
     </script>
-</body>
+  </body>
 </html>
