@@ -29,11 +29,12 @@
     </div>
     <div class="content">
       <button class="login-btn">Sign IN</button>
-      <div class="modal">
-        <div class="modal_content">
-          <p>I'm so tired</p>
-          <button class="modal_close">Close</button>
-        </div>
+    </div>
+
+    <div class="modal">
+      <div class="modal_content">
+        <p>I'm so tired</p>
+        <button class="modal_close">Close</button>
       </div>
     </div>
 
@@ -47,6 +48,13 @@
         $(".menu-wrapper").animate({ left: 0 }, 500);
         //.animate({ attribute: "~~~px ~~"}, time);
       });
+
+      $('.login-btn').click(() => {
+          $(".modal").animate({top:"0"}, 500);
+      })
+      $(".modal_close").click(() => {
+        $(".modal").animate({top:"-300px"}, 500);
+      })
     </script>
   </body>
 </html>

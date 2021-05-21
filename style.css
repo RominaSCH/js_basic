@@ -19,6 +19,7 @@ body{
     height: 200px;
     background-color: darkkhaki;
     display: none;
+
 }
 .container{
     display: flex;
