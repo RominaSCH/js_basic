@@ -44,16 +44,20 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      //애니메이션 만드는 방법
+      // 1. 시작화면/최종화면 만들기
+      // 2. 자바스크립트로 트리거하기
+      // 3. 스무스한 동작은 animate 함수 안쓴다. 그럼 뭘로?
       $(".menu-btn").click(function () {
         $(".menu-wrapper").animate({ left: 0 }, 500);
         //.animate({ attribute: "~~~px ~~"}, time);
       });
 
       $('.login-btn').click(() => {
-          $(".modal").animate({top:"0"}, 500);
+          $(".modal").animate({marginTop:"0px"}, 500);
       })
       $(".modal_close").click(() => {
-        $(".modal").animate({top:"-300px"}, 500);
+        $(".modal").animate({marginTop:"-330px"}, 500);
       })
     </script>
   </body>
