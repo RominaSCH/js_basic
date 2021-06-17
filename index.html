@@ -47,17 +47,21 @@
       //애니메이션 만드는 방법
       // 1. 시작화면/최종화면 만들기
       // 2. 자바스크립트로 트리거하기
-      // 3. 스무스한 동작은 animate 함수 안쓴다. 그럼 뭘로?
+      // 3. 스무스한 동작은 animate 함수 안쓴다. 그럼 뭘로?\
+      // 4. trasition 을 쓴다!!!
+      // 마진에 애니메이션 주지 마진 (ㅠㅠ)
+      // margin width height left right top position.. 애니메이션에 금지 동작시간 오래걸린다(렌더링 부분)
+      // 대신 transform 사용하기
       $(".menu-btn").click(function () {
         $(".menu-wrapper").animate({ left: 0 }, 500);
         //.animate({ attribute: "~~~px ~~"}, time);
       });
 
       $('.login-btn').click(() => {
-          $(".modal").animate({marginTop:"0px"}, 500);
+          $(".modal").css("transform", 'translateY(0px)');
       })
       $(".modal_close").click(() => {
-        $(".modal").animate({marginTop:"-330px"}, 500);
+        $(".modal").css("transform", 'translateY(-400px)');
       })
     </script>
   </body>
