@@ -33,8 +33,12 @@
 
     <div class="modal slide-down">
       <div class="modal_content">
-        <p>I'm so tired</p>
-        <button class="modal_close">Close</button>
+        <form>
+          <input type="email" placeholder="email" name="email" id="email">
+          <input type="password" placeholder="password" name="password" id="password">
+          <input type="submit" class="modal_close submit" value="Submit">
+        </form>
+        
       </div>
     </div>
 
@@ -52,17 +56,32 @@
       // 마진에 애니메이션 주지 마진 (ㅠㅠ)
       // margin width height left right top position.. 애니메이션에 금지 동작시간 오래걸린다(렌더링 부분)
       // 대신 transform 사용하기
-      $(".menu-btn").click(function () {
-        $(".menu-wrapper").animate({ left: 0 }, 500);
-        //.animate({ attribute: "~~~px ~~"}, time);
-      });
+      // $(".menu-btn").click(function () {
+      //   $(".menu-wrapper").animate({ left: 0 }, 500);
+      //   //.animate({ attribute: "~~~px ~~"}, time);
+      // });
 
-      $('.login-btn').click(() => {
-          $(".modal").css("transform", 'translateY(0px)');
+      // $('.login-btn').click(() => {
+      //     $(".modal").css("transform", 'translateY(0px)');
+      // })
+      // $(".modal_close").click(() => {
+      //   $(".modal").css("transform", 'translateY(-400px)');
+      // })
+
+      // /abc/.test("abcdefg"); //abcdefg 에 abc 가 있나요? 맞으면 true, 아니면 false
+      // /[A-z]/.test("s"); [A-z] 모든 알파벳
+      // /[ㄱ-ㅎ]/.test("ㄴㄷ"); 모든 한글 자음
+      // /\S/.test("#Swgㄴㅇㅎㅈ@35!ㄴㅇ"); 특수 문자 포함 모든 글자 
+ //1제대로된 이메일 정규식, 2비밀번호에 대문자 검증, 3이메일 공백검사, 이메일 검사 둘 다 하려면?
+      $("form").on("submit", (e) => {
+        // e.preventDefault();
+        if(!(/\S+@\S+\.\S+/.test($("#email").val()))){
+          e.preventDefault();
+          alert("이메일 제대로 써주세요")
+        }
       })
-      $(".modal_close").click(() => {
-        $(".modal").css("transform", 'translateY(-400px)');
-      })
+
+
     </script>
   </body>
 </html>
