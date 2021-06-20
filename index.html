@@ -36,6 +36,7 @@
         <form>
           <input type="email" placeholder="email" name="email" id="email">
           <input type="password" placeholder="password" name="password" id="password">
+          <h5>Password complexity : <span class="passLevel">Low</span></h5>
           <input type="submit" class="modal_close submit" value="Submit">
         </form>
         
@@ -92,6 +93,43 @@
             e.preventDefault();
             alert("비밀번호에 대문자를 포함시켜주세요");
           }
+      })
+
+      $("#password").on("propertychange change keyup paste input", (e) => {
+        let level = 0;
+        const passInput = $("#password").val();
+        const levelText = $(".passLevel");
+        if(/[a-z]+/.test(passInput)){
+          console.log("소문자")
+          level += 1;
+        }
+        if(/[A-Z]+/.test(passInput)){
+          console.log("대문자")
+          level += 1;
+        }
+        if(/[0-9]+/.test(passInput)){
+          console.log("숫자")
+          level += 1;
+        }
+        if(/[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]+/.test(passInput)){
+          console.log("특수문자")
+          level += 1;
+        }
+
+        if(passInput.length > 10){
+          console.log("길어")
+          level += 1;
+        }
+
+        if(level >= 4){
+          levelText.html("High");
+          levelText.css("color", "red");
+        } else if(level >= 3){
+          levelText.html("Normal");
+          levelText.css("color", "blue");
+        } else{
+          levelText.html("Low");
+        }
       })
     </script>
   </body>
