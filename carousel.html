@@ -18,25 +18,46 @@
         </div>
     </div>
     <div class="buttons">
-        <button class="slide-1 btn">1</button>
+        <!-- <button class="slide-1 btn">1</button>
         <button class="slide-2 btn">2</button>
-        <button class="slide-3 btn">3</button>
+        <button class="slide-3 btn">3</button> -->
+        <div class="back"><i class="fas fa-chevron-left"></i></div>
+        <div class="next"><i class="fas fa-chevron-right"></i></div>
     </div>
-
+    <script src="https://kit.fontawesome.com/6c2f90a09b.js" crossorigin="anonymous"></script>
     <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
     crossorigin="anonymous"
   ></script>
     <script>
-        $(".slide-1").click(() => {
-            $(".slide-container").css("transform", "translateX(0vw)")
+        let page = 1; 
+        // $(".slide-1").click(() => {
+        //     $(".slide-container").css("transform", "translateX(0vw)")
+        // })
+        // $(".slide-2").click(() => {
+        //     $(".slide-container").css("transform", "translateX(-100vw)")
+        // })
+        // $(".slide-3").click(() => {
+        //     $(".slide-container").css("transform", "translateX(-200vw)")
+        // })
+        $(".back").click( () => {
+            if(page === 3){
+                page -= 1;
+                $(".slide-container").css("transform", "translateX(-100vw)")
+            } else if(page === 2){
+                page -= 1;
+                $(".slide-container").css("transform", "translateX(0vw)")
+            }
         })
-        $(".slide-2").click(() => {
-            $(".slide-container").css("transform", "translateX(-100vw)")
-        })
-        $(".slide-3").click(() => {
-            $(".slide-container").css("transform", "translateX(-200vw)")
+        $(".next").click( () => {
+            if(page === 1){
+                page += 1;
+                $(".slide-container").css("transform", "translateX(-100vw)")
+            } else if(page === 2){
+                page += 1;
+                $(".slide-container").css("transform", "translateX(-200vw)")
+            }
         })
     </script>
 </body>

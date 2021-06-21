@@ -13,7 +13,7 @@
 .slide-box img{
     width: 100%;
 }
-.btn{
+/* .btn{
     border:0;
     outline: 0;
     padding: 10px 16px;
@@ -25,9 +25,20 @@
 .btn:hover{
     background-color: deeppink;
     color: #fff;
-}
+} */
 .buttons{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    font-size: 50px;
+    color: #000;
+}
+.back,
+.next{
+    margin: 5px 20px;
+    transition: .2s ease-in-out;
+}
+.back:hover,
+.next:hover{
+    color: deeppink;
 }
