@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel</title>
+    <link rel="stylesheet" href="carousel.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="slide-container">
+            <div class="slide-box"><img src="image/b1.jpg" /></div>
+            <div class="slide-box"><img src="image/b2.jpg" /></div>
+            <div class="slide-box"><img src="image/b3.jpg" /></div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="slide-1 btn">1</button>
+        <button class="slide-2 btn">2</button>
+        <button class="slide-3 btn">3</button>
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+    <script>
+        $(".slide-1").click(() => {
+            $(".slide-container").css("transform", "translateX(0vw)")
+        })
+        $(".slide-2").click(() => {
+            $(".slide-container").css("transform", "translateX(-100vw)")
+        })
+        $(".slide-3").click(() => {
+            $(".slide-container").css("transform", "translateX(-200vw)")
+        })
+    </script>
+</body>
+
+</html>

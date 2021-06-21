@@ -1,0 +1,33 @@
+.wrapper{
+    overflow: hidden;
+}
+.slide-container{
+    width: 300vw;
+    transition: transform .8s ease-in-out;
+    /* transform: translateX(-200vw); */
+}
+.slide-box{
+    width: 100vw;
+    float: left;
+}
+.slide-box img{
+    width: 100%;
+}
+.btn{
+    border:0;
+    outline: 0;
+    padding: 10px 16px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin: 10px 10px;
+    transition: .2s ease-in-out;
+}
+.btn:hover{
+    background-color: deeppink;
+    color: #fff;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
