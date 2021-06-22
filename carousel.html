@@ -31,7 +31,8 @@
     crossorigin="anonymous"
   ></script>
     <script>
-        let page = 1; 
+        let page = 0; 
+        const last_page = 2;
         // $(".slide-1").click(() => {
         //     $(".slide-container").css("transform", "translateX(0vw)")
         // })
@@ -41,22 +42,19 @@
         // $(".slide-3").click(() => {
         //     $(".slide-container").css("transform", "translateX(-200vw)")
         // })
+        
         $(".back").click( () => {
-            if(page === 3){
+            if(page !== 0){
                 page -= 1;
-                $(".slide-container").css("transform", "translateX(-100vw)")
-            } else if(page === 2){
-                page -= 1;
-                $(".slide-container").css("transform", "translateX(0vw)")
+                $(".slide-container").css("transform", "translateX(-"+ page + "00vw)");
+                
             }
         })
         $(".next").click( () => {
-            if(page === 1){
+            if(page < last_page){
                 page += 1;
-                $(".slide-container").css("transform", "translateX(-100vw)")
-            } else if(page === 2){
-                page += 1;
-                $(".slide-container").css("transform", "translateX(-200vw)")
+                $(".slide-container").css("transform", "translateX(-" + page + "00vw)")
+                
             }
         })
     </script>

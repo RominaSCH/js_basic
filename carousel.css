@@ -3,7 +3,7 @@
 }
 .slide-container{
     width: 300vw;
-    transition: transform .8s ease-in-out;
+    transition: transform .5s ease-in-out;
     /* transform: translateX(-200vw); */
 }
 .slide-box{
