@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Animation</title>
+    <link rel="stylesheet" href="navAni.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Start Javascript</div>
+        <div class="nav-menu">
+            <div class="menu">SERVICES</div>
+            <div class="menu">PORTPOLIO</div>
+            <div class="menu">ABOUT</div>
+            <div class="menu">TEAM</div>
+            <div class="menu">CONTACT</div>
+        </div>
+    </nav>
+    <div class="main-img">
+        <img src="image/milky.jpg" />
+    </div>
+    <div class="blank" style="height: 100vh;"></div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        //스크롤바를 내리면 nav background-color 가 white가 되게 하자
+        $(window).on("scroll", () => {
+            // $("nav").css("background-color", "#fff");
+            // $("nav").css("color", "#000"); 이렇게 하면 성가시니까
+            //class로 속성 다 지시한다음 붙였다 떼었다 하면 쉬움
+            // $("nav").addClass("nav-scroll");
+            //스크롤을 100px이상 내렸을 때만 붙여주기는 어떻게 할까?
+            if($(window).scrollTop() > 50){
+                $("nav").addClass("nav-scroll");
+                $(".logo").css("font-size", "20px");
+            } else{
+                $("nav").removeClass("nav-scroll");
+                $(".logo").css("font-size", "30px");
+            }
+        })
+    </script>
+</body>
+</html>
