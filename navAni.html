@@ -21,6 +21,23 @@
     <div class="main-img">
         <img src="image/milky.jpg" />
     </div>
+    <div class="container mt-5">
+        <ul class="list">
+            <li class="tab-button">Products</li>
+            <li class="tab-button active">Information</li>
+            <li class="tab-button">Shipping</li>
+        </ul>
+    
+        <div class="tab-content">
+            <p>상품설명입니다. Product</p>
+        </div>
+        <div class="tab-content show">
+            <p>상품정보입니다. Info</p>
+        </div>
+        <div class="tab-content">
+            <p>배송정보입니다. Shipping</p>
+        </div>
+    </div>
     <div class="blank" style="height: 100vh;"></div>
 
     <script
@@ -41,9 +58,38 @@
                 $(".logo").css("font-size", "20px");
             } else{
                 $("nav").removeClass("nav-scroll");
-                $(".logo").css("font-size", "30px");
+                $(".logo").css("font-size", "30px"); //얘도 속성많으면 따로 클래스 하나 만들어서 addClass removeClass 해도 됨!
             }
+            //애플 사이트 스크롤 애니메이션도 이제 다 만들 수 있음.
+            //포트폴리오 만들어볼까?
         })
+        //eq(0) 는 선택한것중 첫 번째 것 선택
+        for(let i=0;i<$(".tab-button").length;i++){ 
+            $(".tab-button").eq(i).click(() => {
+                $(".tab-button").removeClass("active");
+                $(".tab-content").removeClass("show");
+                $(".tab-button").eq(i).addClass("active");
+                $(".tab-content").eq(i).addClass("show");
+            })//var말고 let으로 쓰자, var은 전역변수고 let은 함수 내에서만 쓰이는 변수니까 var쓰면 에러날 수 있음.
+        }
+    // $(".tab-button").eq(0).click(() => {
+    //     $(".tab-button").removeClass("active");
+    //     $(".tab-content").removeClass("show");
+    //     $(".tab-button").eq(0).addClass("active");
+    //     $(".tab-content").eq(0).addClass("show");
+    // })
+    // $(".tab-button").eq(1).click(() => {
+    //     $(".tab-button").removeClass("active");
+    //     $(".tab-content").removeClass("show");
+    //     $(".tab-button").eq(1).addClass("active");
+    //     $(".tab-content").eq(1).addClass("show");
+    // })
+    // $(".tab-button").eq(2).click(() => {
+    //     $(".tab-button").removeClass("active");
+    //     $(".tab-content").removeClass("show");
+    //     $(".tab-button").eq(2).addClass("active");
+    //     $(".tab-content").eq(2).addClass("show");
+    // })//jQuery 셀렉터의 장점은 요소가 몇 개든 다 찾아서 한번에 addClass, removeClass 가 된다는 점.
     </script>
 </body>
 </html>

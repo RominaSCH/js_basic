@@ -1,44 +1,81 @@
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Bree Serif', serif;
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Bree Serif", serif;
 }
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: transparent;
-    position: fixed;
-    z-index: 5;
-    color: #fff;
-    width: 100%;
-    /* transition: .3s ease-in-out; */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: transparent;
+  position: fixed;
+  z-index: 5;
+  color: #fff;
+  width: 100%;
+  /* transition: .3s ease-in-out; */
 }
-.logo{
-    font-size: 30px;
-    color: deeppink;
-    transition: .3s ease-in-out;
+.logo {
+  font-size: 30px;
+  color: deeppink;
+  transition: 0.3s ease-in-out;
 }
-.nav-scroll{
-    background-color: #fff;
-    color: #000;
+.nav-scroll {
+  background-color: #fff;
+  color: #000;
 }
-.nav-menu{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.menu{
-    margin-right: 20px;
-    cursor: pointer;
+.menu {
+  margin-right: 20px;
+  cursor: pointer;
 }
-.main-img{
-    width: 100vw;
-    height: auto;
+.main-img {
+  width: 100vw;
+  height: auto;
 }
-.main-img img{
-    width: 100%;
+.main-img img {
+  width: 100%;
+}
+
+ul.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #ccc;
+}
+ul.list::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.tab-button {
+  display: block;
+  padding: 10px 20px 10px 20px;
+  float: left;
+  margin-right: -1px;
+  margin-bottom: -1px;
+  color: grey;
+  text-decoration: none;
+  cursor: pointer;
+}
+.active {
+  border-top: 2px solid orange;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid white;
+  border-left: 1px solid #ccc;
+  color: black;
+  margin-top: -2px;
+}
+.tab-content {
+  display: none;
+  padding: 10px;
+}
+.show {
+  display: block;
 }
