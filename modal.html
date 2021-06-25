@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="modal.css">
+</head>
+<body>
+    <div class="modal-open">MODAL</div>
+    <div class="modal-overlay">
+        <div class="modal">
+            <h1>This is awesome</h1>
+        </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        $(".modal-open").click(() => {
+            $(".modal-overlay").show();
+        })
+        $(".modal-overlay").click( (e) => {
+            // $(".modal-overlay").hide(); //다른 요소를 클릭해도 닫힘. 이벤트 버블링 때문에 그럼
+            //이벤트 버블링 해결해보자!
+            if(e.target === e.currentTarget){
+                $(".modal-overlay").hide();
+            }//콘솔창을 믿으라!
+
+            // e.target; //지금 실제로 클릭한 요소
+            // e.currentTarget; //이벤트 리스너가 달린 곳 = $(this)
+            // e.preventDefault(); // 기본동작 막기, 폼의 전송막기라거나..            
+
+            // e.target과 쌩자바스크립트 셀렉터로 찾은 (getElement뭐시기) black-background가 같다고 비교하는건 괜찮습니다.
+            // 둘다 쌩 자바스크립트 문법이니까요. 
+            
+        })
+    </script>
+</body>
+</html>
