@@ -29,10 +29,12 @@
         </ul>
     
         <div class="tab-content">
-            <p>상품설명입니다. Product</p>
+            <!-- <p>상품설명입니다. Product</p> -->
+            <h4 id="title">상품제목</h4>
         </div>
         <div class="tab-content show">
-            <p>상품정보입니다. Info</p>
+            <!-- <p>상품정보입니다. Info</p> -->
+            <p id="text">상품내용</p>
         </div>
         <div class="tab-content">
             <p>배송정보입니다. Shipping</p>
@@ -111,6 +113,11 @@
     //     $(".tab-button").eq(2).addClass("active");
     //     $(".tab-content").eq(2).addClass("show");
     // })//jQuery 셀렉터의 장점은 요소가 몇 개든 다 찾아서 한번에 addClass, removeClass 가 된다는 점.
+
+    var 자료 = [ { brand : 'BMW' }, { model : 520 } ];
+    $("#title").html(자료[0].brand);
+    $("#text").html(자료[1].model);
+    //this is data binding!
     </script>
 </body>
 </html>
