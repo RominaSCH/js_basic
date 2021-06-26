@@ -23,9 +23,9 @@
     </div>
     <div class="container mt-5">
         <ul class="list">
-            <li class="tab-button">Products</li>
-            <li class="tab-button active">Information</li>
-            <li class="tab-button">Shipping</li>
+            <li class="tab-button" data-id="0">Products</li>
+            <li class="tab-button active" data-id="1">Information</li>
+            <li class="tab-button" data-id="2">Shipping</li>
         </ul>
     
         <div class="tab-content">
@@ -64,13 +64,34 @@
             //포트폴리오 만들어볼까?
         })
         //eq(0) 는 선택한것중 첫 번째 것 선택
-        for(let i=0;i<$(".tab-button").length;i++){ 
-            $(".tab-button").eq(i).click(() => {
-                $(".tab-button").removeClass("active");
-                $(".tab-content").removeClass("show");
-                $(".tab-button").eq(i).addClass("active");
-                $(".tab-content").eq(i).addClass("show");
-            })//var말고 let으로 쓰자, var은 전역변수고 let은 함수 내에서만 쓰이는 변수니까 var쓰면 에러날 수 있음.
+        // for(let i=0;i<$(".tab-button").length;i++){ 
+        //     $(".tab-button").eq(i).click(() => {
+        //         tabClick(i);
+        //         $(".tab-button").removeClass("active");
+        //         $(".tab-content").removeClass("show");
+        //         $(".tab-button").eq(i).addClass("active");
+        //         $(".tab-content").eq(i).addClass("show");
+        //     })//var말고 let으로 쓰자, var은 전역변수고 let은 함수 내에서만 쓰이는 변수니까 var쓰면 에러날 수 있음.
+        // }
+            $(".list").click( (e) => {
+                // if 내가 실제 누른 요소가 버튼i이면 {탭 i 열어줘}
+                // if(e.target == $(".tab-button")){
+                //     tabClick()
+                // }
+                tabClick(e.target.dataset.id);
+                //data-id 는 개발자만 볼 수 있는 값이다.
+                //jQuery문법으로 HTML에 몰래 정보저장하는법
+                // $(~~~).data("이름", "값"); 저장하기
+                // $(~~~).data("이름"); 값 불러오기
+                //이벤트 리스너 절약, html안에 정보저장/불러오기
+            })
+        
+
+        function tabClick(i){//함수로 축약하면 보기가 쉽다.
+            $(".tab-button").removeClass("active");
+            $(".tab-content").removeClass("show");
+            $(".tab-button").eq(i).addClass("active");
+            $(".tab-content").eq(i).addClass("show");
         }
     // $(".tab-button").eq(0).click(() => {
     //     $(".tab-button").removeClass("active");
