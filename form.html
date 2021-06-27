@@ -19,14 +19,15 @@
             <select class="form-control" id="option1">
                 <option>모자</option>
                 <option>셔츠</option>
+                <option>바지</option>
             </select>
 
             <div id="sub-option">
                 <p class="mt-4">사이즈 선택</p>
                 <select class="form-control" id="option2">
-                    <option>95(M)</option>
+                    <!-- <option>95(M)</option>
                     <option>100(L)</option>
-                    <option>105(XL)</option>
+                    <option>105(XL)</option> -->
                 </select>
             </div>
 
@@ -42,6 +43,19 @@
         //change event : input value 바뀌고 focus 잃을 때 생기는 이벤트
         $("#option1").on("change", function(){
             if($("#option1").val() == "셔츠"){
+                // 템플릿을 만들고 $().append(); 하면됨
+                //  ""안에서 엔터 금지임. ``쓰자
+                $("#option2").html("");//초기화 한후 append로 추가해도 되고, 걍 html 써도 되긴 함
+                const template = `<option>95(M)</option>
+                <option>100(L)</option>
+                <option>105(XL)</option>`;
+                $("#option2").append(template); //.append 쓰면 추가, html은 통째로 바꿔버리기
+                $("#sub-option").show();
+            } else if($("#option1").val() == "바지"){
+                const template = `<option>28</option>
+                <option>30</option>
+                <option>32</option>`;
+                $("#option2").html(template);
                 $("#sub-option").show();
             } else{
                 $("#sub-option").hide();
