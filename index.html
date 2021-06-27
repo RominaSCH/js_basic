@@ -57,17 +57,17 @@
       // 마진에 애니메이션 주지 마진 (ㅠㅠ)
       // margin width height left right top position.. 애니메이션에 금지 동작시간 오래걸린다(렌더링 부분)
       // 대신 transform 사용하기
-      // $(".menu-btn").click(function () {
-      //   $(".menu-wrapper").animate({ left: 0 }, 500);
-      //   //.animate({ attribute: "~~~px ~~"}, time);
-      // });
+      $(".menu-btn").click(function () {
+        $(".menu-wrapper").animate({ left: 0 }, 500);
+        //.animate({ attribute: "~~~px ~~"}, time);
+      });
 
-      // $('.login-btn').click(() => {
-      //     $(".modal").css("transform", 'translateY(0px)');
-      // })
-      // $(".modal_close").click(() => {
-      //   $(".modal").css("transform", 'translateY(-400px)');
-      // })
+      $('.login-btn').click(() => {
+          $(".modal").css("transform", 'translateY(0px)');
+      })
+      $(".modal_close").click(() => {
+        $(".modal").css("transform", 'translateY(-400px)');
+      })
 
       // /abc/.test("abcdefg"); //abcdefg 에 abc 가 있나요? 맞으면 true, 아니면 false
       // /[A-z]/.test("s"); [A-z] 모든 알파벳
