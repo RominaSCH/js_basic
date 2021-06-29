@@ -48,18 +48,27 @@
                 // 템플릿을 만들고 $().append(); 하면됨
                 //  ""안에서 엔터 금지임. ``쓰자
                 $("#option2").html("");//초기화 한후 append로 추가해도 되고, 걍 html 써도 되긴 함
-                for(var i = 0; i < shirtSize.length; i ++){
-                    let template = `<option>${shirtSize[i]}</option>`;
-                $("#option2").append(template);
-                }
+                shirtSize.forEach((i) => {
+                    //i값은 array의 하나하나의 데이터를 뜻한다
+                    let template = `<option>${i}</option>`;
+                    $("#option2").append(template);
+                })
+                // for(var i = 0; i < shirtSize.length; i ++){
+                //     let template = `<option>${shirtSize[i]}</option>`;
+                //     $("#option2").append(template);
+                // }
                  //.append 쓰면 추가, html은 통째로 바꿔버리기
                 $("#sub-option").show();
             } else if($("#option1").val() == "바지"){
                 $("#option2").html("");
-                for(var j = 0; j < pantSize.length;j++){
-                    let template = `<option>${pantSize[j]}</option>`;
+                pantSize.forEach((j) => {
+                    let template = `<option>${j}</option>`;
                     $("#option2").append(template);
-                }
+                })
+                // for(var j = 0; j < pantSize.length;j++){
+                //     let template = `<option>${pantSize[j]}</option>`;
+                //     $("#option2").append(template);
+                // }
                 $("#sub-option").show();
             } else{
                 $("#sub-option").hide();
