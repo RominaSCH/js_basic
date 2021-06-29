@@ -39,6 +39,8 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <script>
+        const shirtSize = ["95(M)", "100(L)", "105(XL)"];
+        const pantSize = [26,28,30,32,34,36];
         //셔츠 선택했을 시에 사이즈 선택(#sub-option)이 보이게 해야한다.
         //change event : input value 바뀌고 focus 잃을 때 생기는 이벤트
         $("#option1").on("change", function(){
@@ -46,16 +48,18 @@
                 // 템플릿을 만들고 $().append(); 하면됨
                 //  ""안에서 엔터 금지임. ``쓰자
                 $("#option2").html("");//초기화 한후 append로 추가해도 되고, 걍 html 써도 되긴 함
-                const template = `<option>95(M)</option>
-                <option>100(L)</option>
-                <option>105(XL)</option>`;
-                $("#option2").append(template); //.append 쓰면 추가, html은 통째로 바꿔버리기
+                for(var i = 0; i < shirtSize.length; i ++){
+                    let template = `<option>${shirtSize[i]}</option>`;
+                $("#option2").append(template);
+                }
+                 //.append 쓰면 추가, html은 통째로 바꿔버리기
                 $("#sub-option").show();
             } else if($("#option1").val() == "바지"){
-                const template = `<option>28</option>
-                <option>30</option>
-                <option>32</option>`;
-                $("#option2").html(template);
+                $("#option2").html("");
+                for(var j = 0; j < pantSize.length;j++){
+                    let template = `<option>${pantSize[j]}</option>`;
+                    $("#option2").append(template);
+                }
                 $("#sub-option").show();
             } else{
                 $("#sub-option").hide();
