@@ -40,6 +40,13 @@ function multiTable(number){
     // console.log(`${number} * 8 = ${number*8}`);
     // console.log(`${number} * 9 = ${number*9}\n`); //No more hard coding!
 }
-for(var j=2;j<10;j++){
-    multiTable(j);
+// for(var j=2;j<10;j++){
+//     multiTable(j);
+// }
+
+function goalCalculator(pastResult, avgGoal){
+    let totalResult = 0;
+    pastResult.forEach((k) => { totalResult += k; });
+    return console.log(avgGoal*(pastResult.length + 1) -totalResult); 
 }
+goalCalculator( [11, 6, 2, 3, 5] , 10 );
