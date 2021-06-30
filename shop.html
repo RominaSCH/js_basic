@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="container">
-      <button class="btn btn-secondary">가격순 정렬</button>
+      <button class="btn btn-secondary" id="sortPrice">가격순 정렬</button>
     </div>
 
     <script
@@ -56,17 +56,28 @@
         { id: 1, price: 50000, title: "Springfield Shirt" },
         { id: 2, price: 60000, title: "Black Monastery" },
       ];
+      
+      $("#sortPrice").click(() => {
+        products.sort((a,b) => {
+          return a.price - b.price;
+        })
+        for(var i = 0;i < products.length;i++){
+        $(".card-title").eq(i).html(products[i].title);
+        $(".card-price").eq(i).html(products[i].price)
+      }
+      })
+
       for(var i = 0;i < products.length;i++){
         $(".card-title").eq(i).html(products[i].title);
         $(".card-price").eq(i).html(products[i].price)
       }
-      
-      let array = [2,4,6,1,79];
-      //sort 는 문자정렬
-      array.sort((a,b) => { //sort 숫자정렬, 외워야 하는 부분
-        return b-a;//a-b는 오름차순, +를 return하면 a 오른쪽 b 왼쪽, -를 return하면 b오른쪽 a 왼쪽
-        //return b-a는 내림차순
-      })
+      // let array = [2,4,6,1,79];
+      // //sort 는 문자정렬
+      // array.sort((a,b) => { //sort 숫자정렬, 외워야 하는 부분
+      //   return b-a;//a-b는 오름차순, +를 return하면 a 오른쪽 b 왼쪽, -를 return하면 b오른쪽 a 왼쪽
+      //   //return b-a는 내림차순
+      //   //cba순 정렬?? 모르겠음.. 구현가능, 인터넷에 많음. 문자끼리 부등호 비교 가능
+      // })
     </script>
 
     <script>
