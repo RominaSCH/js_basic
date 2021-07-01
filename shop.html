@@ -43,6 +43,7 @@
     </div>
     <div class="container">
       <button class="btn btn-secondary" id="sortPrice">가격순 정렬</button>
+      <button class="btn btn-secondary" id="filterPrice">6만원 이하 상품만 보기</button>
     </div>
 
     <script
@@ -61,22 +62,40 @@
         products.sort((a,b) => {
           return a.price - b.price;
         })
-        for(var i = 0;i < products.length;i++){
-        $(".card-title").eq(i).html(products[i].title);
-        $(".card-price").eq(i).html(products[i].price)
-      }
+        productView(products);
       })
 
-      for(var i = 0;i < products.length;i++){
-        $(".card-title").eq(i).html(products[i].title);
-        $(".card-price").eq(i).html(products[i].price)
+      function productView(array){
+        for(var i = 0;i < array.length;i++){
+          $(".card-title").eq(i).html(array[i].title);
+          $(".card-price").eq(i).html(array[i].price);
+        }
       }
-      // let array = [2,4,6,1,79];
-      // //sort 는 문자정렬
+      
+
+      $("#filterPrice").click(() => {
+        const newProduct = products.filter((a) => {
+          return a.price <= 60000;
+        })
+        productView(newProduct);
+      })
+
+      let array = [2,4,6,1,79];
+
+      // //sort 는 문자정렬, 파괴함수여서 자료를 변형한다.
       // array.sort((a,b) => { //sort 숫자정렬, 외워야 하는 부분
       //   return b-a;//a-b는 오름차순, +를 return하면 a 오른쪽 b 왼쪽, -를 return하면 b오른쪽 a 왼쪽
       //   //return b-a는 내림차순
       //   //cba순 정렬?? 모르겠음.. 구현가능, 인터넷에 많음. 문자끼리 부등호 비교 가능
+      // })
+
+      // let newArray = array.filter((a) => { //parameter 하나, 자료변형X
+      //   return a < 4 //return 조건식
+      // })
+      // console.log(newArray);
+
+      // const newArray = array.map((a) => { //array자료 하나하나에 어떤 처리를 하고싶을 때
+      //   return a*5;
       // })
     </script>
 
