@@ -16,7 +16,7 @@
   </head>
   <body>
     <div class="card-group container">
-      <div class="card">
+      <!-- <div class="card">
         <img src="https://via.placeholder.com/600" />
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
@@ -39,11 +39,12 @@
           <p class="card-price">가격 : 70000</p>
           <button class="btn btn-danger">주문하기</button>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="container">
-      <button class="btn btn-secondary" id="sortPrice">가격순 정렬</button>
+      <button class="btn btn-secondary" id="sortPrice">낮은 가격순 정렬</button>
       <button class="btn btn-secondary" id="filterPrice">6만원 이하 상품만 보기</button>
+      <button class="btn btn-secondary" id="filterAlpha">알파벳순 정렬</button>
     </div>
 
     <script
@@ -52,26 +53,40 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      var products = [
+      var productsObj = [
         { id: 0, price: 70000, title: "Blossom Dress" },
         { id: 1, price: 50000, title: "Springfield Shirt" },
         { id: 2, price: 60000, title: "Black Monastery" },
       ];
       
+      var products = [...productsObj];//값 공유 안되는 별개의 사본 생성 가능
+
+
+      productView(products);
+      function productView(array){
+        $(".card-group").html("");
+        for(var i = 0;i < array.length;i++){
+          $(".card-group").append(`<div class="card col-4">
+        <img src="https://via.placeholder.com/600" />
+        <div class="card-body">
+          <h5 class="card-title">${array[i].title}</h5>
+          <p class="card-price">가격 : ${array[i].price}</p>
+          <button class="btn btn-danger">주문하기</button>
+        </div>
+      </div>`);
+          // $(".card-title").eq(i).html(array[i].title);
+          // $(".card-price").eq(i).html(array[i].price);
+        }
+      }
+      //숙제1. 가나다순 정렬버튼, 기능제작
+      //숙제2. filter 5만원 이하상품만 보여주기, 기능제작
+
       $("#sortPrice").click(() => {
         products.sort((a,b) => {
           return a.price - b.price;
         })
         productView(products);
       })
-
-      function productView(array){
-        for(var i = 0;i < array.length;i++){
-          $(".card-title").eq(i).html(array[i].title);
-          $(".card-price").eq(i).html(array[i].price);
-        }
-      }
-      
 
       $("#filterPrice").click(() => {
         const newProduct = products.filter((a) => {
@@ -80,7 +95,21 @@
         productView(newProduct);
       })
 
-      let array = [2,4,6,1,79];
+      $("#filterAlpha").click(() => {
+        products.sort((a,b) => {
+          let x = a.title.toLowerCase();
+          let y = b.title.toLowerCase();
+          if(x < y){
+            return -1;
+          }else if(x > y){
+            return 1;
+          } else{
+            return 0;
+          }
+        });
+        productView(products);
+      })
+      // let array = [2,4,6,1,79];
 
       // //sort 는 문자정렬, 파괴함수여서 자료를 변형한다.
       // array.sort((a,b) => { //sort 숫자정렬, 외워야 하는 부분
