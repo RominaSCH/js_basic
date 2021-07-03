@@ -50,6 +50,11 @@
         }).always( () => {
             //ajax 요청시 항상 실행할 코드
         });
+
+        //JSON data는 object와 다르게 "name" : "~~~"이다.(Object는 name : "~~~") 데이터 주고받을 때 깨지지 말라고 이렇게 됨.
+        //var Object = JSON.parse(JSONDATA); Object to JSON
+        //var JSON = JSON.stringify(OBJECTDATA); JSON to Object
+        //jQuery ajax는 JSON을 알아서 Object 데이터로 변환해주기 때문에 jQuery 쓸거면 신경 덜 써도 됨.
     </script>
 </body>
 </html>
