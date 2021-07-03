@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+</head>
+<body>
+    <h4 id="hello">Before</h4>
+    <button class="ajax-btn">바꾸기</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        //AJAX : 서버에 GET/POST 요청을 새로고침 없이 도와줌
+        $.ajax({
+            url : "https://codingapple1.github.io/hello.txt",
+            type : "GET"
+        }).done((data) => {
+            $(".ajax-btn").click(() => {
+                $("#hello").html(data);
+            })
+        })
+    </script>
+</body>
+</html>
