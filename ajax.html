@@ -5,23 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AJAX</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <h4 id="hello">Before</h4>
-    <button class="ajax-btn">바꾸기</button>
+    <!-- <h4 id="hello">Before</h4>
+    <button class="ajax-btn">바꾸기</button> -->
+
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <p class="card-price">000</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    
+    <button class="btn btn-danger product-btn">상품을 불러오는 버튼</button>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
         //AJAX : 서버에 GET/POST 요청을 새로고침 없이 도와줌
         $.ajax({
-            url : "https://codingapple1.github.io/hello.txt",
+            url : "https://codingapple1.github.io/data.json", //URL을 어디로 요청하는지는 서버개발자에게 물어보면 됨
             type : "GET"
+            //data : "~~~",
+            //dataType : "~~~" 이렇게 하면 상세한 ajax 요청을 할 수 있음. 구글링하면 더 알 수 있다
         }).done((data) => {
-            $(".ajax-btn").click(() => {
-                $("#hello").html(data);
+            console.log(data)
+            // $(".ajax-btn").click(() => {
+            //     $("#hello").html(data);
+            // })
+            $(".product-btn").click(() => {
+                $(".card-img-top").attr("src", data.img);
+                $(".card-title").html(data.model);
+                $(".card-text").html(data.brand);
+                $(".card-price").html(data.price);
             })
-        })
+        }).fail((jqXHR, textStatus, errorThrown) => {
+            //ajax 요청 실패시 실행할 코드
+            //textStatus, errorThrown을 출력해보면 Ajax 요청이 왜 실패했는지 이유를 알려줍니다
+        }).always( () => {
+            //ajax 요청시 항상 실행할 코드
+        });
     </script>
 </body>
 </html>
