@@ -27,7 +27,8 @@
         setTimeout(() => {
           text.innerHTML = text.innerHTML + textOrigin[i]; //한글 자음모음 타이핑효과는...한글 타이핑 효과 라이브러리 있음.
         }, i*200 );
-      }
+      } //기능을 함수화 할 때 변수를 파라미터로 잘 바꿔주어야 다른 곳에서도 적용할 수 있다.
+      //여기서는 btn, text, textOrigin 들
     })
     
   </script>
