@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type writing</title>
+</head>
+<body>
+    
+  <h1>제발 아프지 말자</h1>
+  <button class="btn">START</button>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    //버튼누르면 0.5마다 글씨가 하나씩 더해지게
+    // .5s R, 1s RO 1.5s ROM 2.0s ROMI 2.5s ROMIN 3s ROMINA
+    const btn = document.querySelector(".btn"); 
+    const text = document.querySelector("h1");
+    const textOrigin = document.querySelector("h1").innerHTML;
+    $(".btn").click(() => {
+      text.innerHTML = "";
+      for(let i = 0;i < textOrigin.length; i++){ //반복문 안에 let 으로 선언하기. var는 자주 오류남
+        setTimeout(() => {
+          text.innerHTML = text.innerHTML + textOrigin[i]; //한글 자음모음 타이핑효과는...한글 타이핑 효과 라이브러리 있음.
+        }, i*200 );
+      }
+    })
+    
+  </script>
+</body>
+</html>
